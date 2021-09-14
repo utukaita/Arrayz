@@ -66,37 +66,17 @@ public class Main {
         for (int k:cum(array))
             System.out.print(k + " ");
     }
-    public static int[] larger(int[] array, int m){
-        int[] larger = new int[array.length];
-        int larger_counter = 0;
-        for(int i: array) {
-            if (i > m) {
-                larger[larger_counter] = i;
-                larger_counter++;
-            }
-        }
-        int[] return_list = new int[larger_counter];
-        for(int i = 0; i <= return_list.length-1; i++)
-            return_list[i] = larger[i];
-        return return_list;
-    }
-    public static int[] smaller(int[] array, int m){
-        int[] smaller = new int[array.length];
-        int smaller_counter = 0;
-        for(int i: array) {
-            if (i < m) {
-                smaller[smaller_counter] = i;
-                smaller_counter++;
-            }
-        }
-        int[] return_list = new int[smaller_counter];
-        for(int i = 0; i <= return_list.length-1; i++)
-            return_list[i] = smaller[i];
-        return return_list;
-    }
     public static void homework_6(){
         final int[] array = {4, -3, -5, 9, 1, 11};
         final int m = 1;
+        int larger[] = new int[array.length];
+        int smaller[] = new int[array.length];
+        for (int i = 0; i < array.length; i++){
+            if ( array[i]-m < 0)
+                smaller[i] = array[i]-m;
+            else if (array[i] - m > 0)
+                larger[i]= array[i] - m;
+        }
         System.out.println("");
         System.out.print("array: ");
         for(int i: array){
@@ -106,13 +86,15 @@ public class Main {
         System.out.print("m: " + m);
         System.out.println("");
         System.out.print("smaller: ");
-        for(int i: smaller(array, m)){
-            System.out.print(i + " ");
+        for(int i: smaller){
+            if (i != 0)
+                System.out.print(i+m + " ");
         }
         System.out.println("");
         System.out.print("larger: ");
-        for(int i: larger(array, m)){
-            System.out.print(i + " ");
+        for(int i: larger){
+            if (i != 0)
+                System.out.print(i+m + " ");
         }
     }
 }
